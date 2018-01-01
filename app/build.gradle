@@ -12,8 +12,12 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            buildConfigField "String", "HOX_WI_SECRET_KEY", "\"$System.env.HOX_WI_SECRET_KEY\""
+        }
         release {
             minifyEnabled false
+            buildConfigField "String", "HOX_WI_SECRET_KEY", "\"$System.env.HOX_WI_SECRET_KEY\""
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }

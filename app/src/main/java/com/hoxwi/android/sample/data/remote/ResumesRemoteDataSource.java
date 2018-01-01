@@ -2,6 +2,7 @@ package com.hoxwi.android.sample.data.remote;
 
 import android.support.annotation.NonNull;
 
+import com.hoxwi.android.sample.BuildConfig;
 import com.hoxwi.android.sample.data.Resume;
 import com.hoxwi.android.sample.data.IResumesDataSource;
 
@@ -30,6 +31,8 @@ public class ResumesRemoteDataSource implements IResumesDataSource {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(HoxWiService.class);
+
+
     }
 
     public static ResumesRemoteDataSource getInstance(){
@@ -133,7 +136,7 @@ public class ResumesRemoteDataSource implements IResumesDataSource {
 
     private HoxWiRequestBody buildRequestBody(Object document){
         HoxWiRequestBody body = new HoxWiRequestBody.Builder()
-                .secretKey(HoxWiService.SECRET_KEY)
+                .secretKey(BuildConfig.HOX_WI_SECRET_KEY)
                 .container(HoxWiService.CONTAINER)
                 .document(document)
                 .build();

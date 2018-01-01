@@ -15,8 +15,6 @@ public interface HoxWiService {
 
     String CONTAINER = "resumes";
 
-    String SECRET_KEY = ""; // IN PRODUCTION, DON'T EXPOSE YOU SECRET KEY
-
     @PUT("Search")
     Call<HoxWiResponseBody> searchResumes(@Body HoxWiRequestBody body);
 
